@@ -78,7 +78,14 @@
                                 <span class="text-indigo-600 font-semibold"><?php print $job['salary'] ?></span>
                             </div>
                         </div>
-                        <p class="mt-4 text-gray-600"><?php print strlen($job['description']) > 25 ? $job['description'] : substr($job['description'],0,25).'....' ?></p>
+                        <p class="mt-4 text-gray-600">
+                            <?php 
+                                $description = $job['description'];
+                                // Truncate if longer than 25 characters
+                                echo strlen($description) > 25 ? substr($description, 0, 25) . '...' : $description;
+                            ?>
+                        </p>
+
                         <div class="mt-4 flex justify-between items-center">
                             <a href="<?php print url('job-detail',['id'=> $job['job_id'] ]) ?>" class="text-indigo-600 hover:underline">View Details</a>
                             <span class="text-gray-500">Posted On <?php print date('d-m-Y',strtotime($job['date_added'])) ?></span>

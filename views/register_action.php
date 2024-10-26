@@ -25,23 +25,23 @@
 
       if(empty($name) || empty($email) || empty($dob) || empty($gender) || empty($country) || empty($country_code) || empty($phone) || empty($qualification) || empty($experience) || empty($current_job) || empty($availability) || empty($address) || empty($password)){
         $_SESSION['error']="All fields are required";
-        header('location:/jobconnect/login');
+        header('location:'.url('login'));
         exit;
       }
 
       if(strlen($password) < 8){
         $_SESSION['error']="Password must be 8 characters or more";
-        header('location:/jobconnect/login');
+        header('location:'.url('login'));
         exit;
       }
 
       $job_seeker = $user->insert_job_seeker($name, $email, $password, $dob, $gender, $country, $full_phone, $qualification, $experience, $current_job, $availability, $resume, $address);
 
       if($job_seeker){
-        header("location:/jobconnect/");
+        header("location:".url('home'));
         exit;
       }else{
-        header("location:/jobconnect/register");
+        header("location:".url('job-seeker-register'));
         exit;
       }
      }
@@ -65,29 +65,31 @@
       
       if(strlen($password) < 8){
         $_SESSION['error']="Password must be 8 characters or more";
-        header('location:/jobconnect/employer/register');
+        header('location:'.url('employer-register'));
         exit;
       }
 
           if(empty($company_name) || empty($name) || empty($email) || empty($password) || empty($industry) || empty($employees) || empty($referral) || empty($country) || empty($address)){
             $_SESSION['error']="All fields are required";
-            header('location:/jobconnect/employer/register');
+            header('location:'.url('employer-register'));
             exit;
           }
 
         $employer = $user->insert_employer($company_name,$name,$email,$password,$full_phone,$industry,$employees,$referral,$country,$address);
 
         if($employer){
-          header("location:/jobconnect/employer/dashboard");exit;
+          header("location:".url('employer-dashboard'));
+          exit;
         }else{
-          header("location:/jobconnect/employer/register");exit;
+          header('location:'.url('employer-register'));
+          exit;
         }
 
      }
 
 
  }else{
-  header("location:/jobconnect/register");
+  header("location:".url('job-seeker-register'));
   exit;
  }
 ?>

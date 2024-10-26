@@ -54,15 +54,19 @@ function handleRouting($uri) {
 
     // Loop through the registered routes to find a match
     foreach ($routes as $routePattern => $view) {
-        // Check if the request URI matches the route pattern
+        // Check if the request URI matches the route pattern.
         if (preg_match("/^$routePattern$/", $uri, $matches)) {
-            // Extract dynamic parameters (if any) so they can be used in the view
+
+            if (isset($matches[1])) {
+                $id = $matches[1]; // Assign the ID to a variable
+            }
+            // Extract dynamic parameters (if any) so they can be used in the view.
             extract($matches);
 
-            // Include the corresponding view file
+            // Include the corresponding view file.
             require $view;
             return;
-        }
+        } 
     }
 
     // If no match is found, return a 404 error and load a custom 404 page

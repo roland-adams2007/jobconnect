@@ -23,7 +23,7 @@ if(isset($_SESSION['user_details']['user_id'])){
     <link rel="icon" type="image/png" sizes="16x16" href="<?php print asset('images/hand-shake.png') ?>">
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100 h-screen overflow-y-auto">
 
     <!-- Loader -->
     <?php include "partials/loader.php" ?>

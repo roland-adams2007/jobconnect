@@ -37,7 +37,7 @@
     <script src="<?php print asset('javascript/hamburger.js') ?>"></script>
  
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 h-screen overflow-y-auto">
 
   <!-- Loader -->
  <?php include('partials/loader.php') ?>

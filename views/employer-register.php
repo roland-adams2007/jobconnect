@@ -32,7 +32,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="<?php print asset('images/hand-shake.png') ?>">
     <link rel="icon" type="image/png" sizes="16x16" href="<?php print asset('images/hand-shake.png') ?>">
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 h-screen overflow-y-auto">
 
   <!-- Loader -->
 <?php include_once('partials/loader.php') ?>
